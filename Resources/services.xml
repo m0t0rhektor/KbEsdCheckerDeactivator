@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+    <!-- <service id="SwagPaymentPayPalUnified\Components\Services\RiskManagement\EsdProductChecker" class="KbEsdCheckerDeactivator\Components\Services\RiskManagement\EsdProductChecker" /> -->
+
+    
+        <service id="KbEsdCheckerDeactivator\Components\Services\RiskManagement\EsdProductCheckerService" 
+                class="KbEsdCheckerDeactivator\Components\Services\RiskManagement\EsdProductCheckerService" 
+                decorates="SwagPaymentPayPalUnified\Components\Services\RiskManagement\EsdProductChecker"
+                public="false">
+
+                <argument type="service" id="KbEsdCheckerDeactivator\Components\Services\RiskManagement\EsdProductCheckerService.inner"/>
+
+        </service>
+
+    </services>
+
+</container>
